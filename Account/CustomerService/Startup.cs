@@ -12,7 +12,7 @@ namespace CustomerService
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{tenant}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
