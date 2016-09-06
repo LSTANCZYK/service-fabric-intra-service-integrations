@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProjectGuid>{54B29940-8780-4A75-BA2C-33CE97351DB6}</ProjectGuid>
+    <ProjectGuid>{1EB3A098-C4B0-4949-972E-7B6DAEDEB5E4}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CustomerService</RootNamespace>
@@ -112,20 +112,17 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseCustomerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="OwinCommunicationListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OwinCommunicationListener.cs" />
     <Compile Include="CustomerService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServiceEventSource.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="WcfCommunicationTcpClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PackageRoot\Config\Settings.xml" />
     <None Include="PackageRoot\ServiceManifest.xml" />
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
