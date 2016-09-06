@@ -8,7 +8,6 @@ namespace CustomerService.Controllers
         public IHttpActionResult Query(string tenant, string accountNumber)
         {
             string connectionString = GetTenantDBConnection(tenant);
-
             return Ok(connectionString);
         }
     }
