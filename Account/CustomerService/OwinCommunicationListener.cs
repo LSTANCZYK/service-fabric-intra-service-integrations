@@ -64,7 +64,7 @@ namespace CustomerService
         {
             var serviceEndpoint = this.serviceContext.CodePackageActivationContext.GetEndpoint(this.endpointName);
             var protocol = serviceEndpoint.Protocol;
-            int port = FindFreeTcpPort(serviceEndpoint.Port);
+            int port = FindFreeTcpPort(8281);
 
             if (this.serviceContext is StatefulServiceContext)
             {
