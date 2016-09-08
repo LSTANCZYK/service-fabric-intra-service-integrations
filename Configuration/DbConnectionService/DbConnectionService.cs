@@ -23,7 +23,7 @@ namespace DbConnectionService
 
         public string IdentifyTenantDatabase(string tenantKey)
         {
-            return string.Format("Connection:{0}", tenantKey);
+            return string.Format("SQLConnection:{0}", tenantKey);
         }
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
