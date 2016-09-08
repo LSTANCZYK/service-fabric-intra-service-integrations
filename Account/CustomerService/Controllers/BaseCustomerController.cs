@@ -11,7 +11,7 @@ namespace CustomerService.Controllers
 {
     public abstract class BaseCustomerController : ApiController
     {
-        private static readonly string SF_CONFIG_DBCONNECTION_SERVICE = "fabric:/ConfigurationManagement-1.0.0/DbConnectionService";
+        private static readonly string SF_CONFIG_DBCONNECTION_SERVICE = "fabric:/ConfigurationManagement-1.0.1/DbConnectionService";
 
         protected string GetTenantDBConnection(string tenant)
         {
