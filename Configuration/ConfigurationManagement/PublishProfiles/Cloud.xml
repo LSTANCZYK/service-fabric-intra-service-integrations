@@ -22,4 +22,7 @@
   -->
   <ClusterConnectionParameters ConnectionEndpoint="#{SERVICE_FABRIC_CONNECTION_ENDPOINT}#" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+  <UpgradeDeployment Mode="UnmonitoredAuto" Enabled="true">
+    <Parameters UpgradeReplicaSetCheckTimeoutSec="1" Force="True" />
+  </UpgradeDeployment>
 </PublishProfile>
