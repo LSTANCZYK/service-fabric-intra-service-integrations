@@ -153,8 +153,7 @@ namespace CustomerService
 
         private static int FindFreeTcpPort(int startPort)
         {
-            /*
-            IPEndPoint[] tcpEndPoints = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners();
+            var tcpEndPoints = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners();
 
             var usedPorts = tcpEndPoints.Where(p => p.Port >= startPort).OrderBy(p => p.Port).Select(p => p.Port).ToList();
             var requestedPorts = Enumerable.Range(startPort, 1000).ToArray();
@@ -164,12 +163,11 @@ namespace CustomerService
             {
                 return unusedPorts.OrderBy(x => x).First();
             }
-            */
 
             // find a random port - reference:  http://stackoverflow.com/questions/138043/find-the-next-tcp-port-in-net
             TcpListener l = new TcpListener(IPAddress.Loopback, 0);
             l.Start();
-            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            var port = ((IPEndPoint)l.LocalEndpoint).Port;
             l.Stop();
             return port;
         }
