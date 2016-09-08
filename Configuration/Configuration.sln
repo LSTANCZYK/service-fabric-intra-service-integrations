@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbConnectionService", "DbCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManagement.SDK", "ConfigurationManagement.SDK\ConfigurationManagement.SDK.csproj", "{CE12A5CA-11E9-436A-8444-9CA1874B0DED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisConnectionService", "RedisConnectionService\RedisConnectionService.csproj", "{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{CE12A5CA-11E9-436A-8444-9CA1874B0DED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE12A5CA-11E9-436A-8444-9CA1874B0DED}.Release|x64.ActiveCfg = Release|Any CPU
 		{CE12A5CA-11E9-436A-8444-9CA1874B0DED}.Release|x64.Build.0 = Release|Any CPU
+		{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}.Debug|x64.ActiveCfg = Debug|x64
+		{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}.Debug|x64.Build.0 = Debug|x64
+		{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}.Release|Any CPU.ActiveCfg = Release|x64
+		{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}.Release|x64.ActiveCfg = Release|x64
+		{FE2B076D-53F6-4CA1-AD1A-5640B8D66700}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

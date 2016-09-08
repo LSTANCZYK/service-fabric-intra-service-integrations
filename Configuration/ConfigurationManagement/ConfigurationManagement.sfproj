@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DbConnectionService\DbConnectionService.csproj" />
+    <ProjectReference Include="..\RedisConnectionService\RedisConnectionService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
