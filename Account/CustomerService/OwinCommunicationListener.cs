@@ -2,8 +2,13 @@
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Owin;
 using System;
+using System.Collections.Generic;
 using System.Fabric;
 using System.Globalization;
+using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -59,7 +64,7 @@ namespace CustomerService
         {
             var serviceEndpoint = this.serviceContext.CodePackageActivationContext.GetEndpoint(this.endpointName);
             var protocol = serviceEndpoint.Protocol;
-            int port = serviceEndpoint.Port;
+            int port = FindFreeTcpPort(serviceEndpoint.Port);
 
             if (this.serviceContext is StatefulServiceContext)
             {
@@ -144,6 +149,27 @@ namespace CustomerService
                     // no-op
                 }
             }
+        }
+
+        private static int FindFreeTcpPort(int startPort)
+        {
+            IPEndPoint[] tcpEndPoints = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners();
+
+            var usedPorts = tcpEndPoints.Where(p => p.Port >= startPort).OrderBy(p => p.Port).Select(p => p.Port).ToList();
+            var requestedPorts = Enumerable.Range(startPort, 1000).ToArray();
+
+            var unusedPorts = requestedPorts.Except(usedPorts).ToList();
+            if (unusedPorts.Count() > 0)
+            {
+                return unusedPorts.OrderBy(x => x).First();
+            }
+
+            // find a random port - reference:  http://stackoverflow.com/questions/138043/find-the-next-tcp-port-in-net
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+            return port;
         }
     }
 }
