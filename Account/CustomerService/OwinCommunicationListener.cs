@@ -104,7 +104,7 @@ namespace CustomerService
             {
                 this.eventSource.Message("Starting web server on " + this.publishAddress);
 
-                this.webApp = WebApp.Start(this.publishAddress, appBuilder => this.startup.Invoke(appBuilder));
+                this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
                 this.eventSource.Message("Listening on " + this.publishAddress);
 
