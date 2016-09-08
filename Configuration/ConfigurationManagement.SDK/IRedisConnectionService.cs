@@ -2,7 +2,7 @@
 
 namespace ConfigurationManagement.SDK
 {
-    [SerivceContract]
+    [ServiceContract]
     public interface IRedisConnectionService
     {
         [OperationContract]
